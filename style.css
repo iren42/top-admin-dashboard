@@ -29,15 +29,20 @@ body {
     grid-template-rows: 200px 1fr;
 }
 
+.sidebar, header, main {
+    padding: 1rem;
+}
 .sidebar {
     grid-row: 1 / -1;
     background-color: darkblue;
     color: whitesmoke;
-    padding: 1rem;
 }
 
 header {
     grid-area: 1 / 2 / 2 / -1;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
 }
 
 
@@ -112,5 +117,13 @@ h1 {
 
     & span {
         font-size: 1.5rem;
+    }
+}
+
+
+/* ------- for collapsed sidebar ------- */
+@media only screen and (max-width: 992px ) {
+    body {
+        background-color: black;
     }
 }
