@@ -1,3 +1,8 @@
+:root {
+    --sidebar-gap: 1rem;
+    --sidebar-icon-size: 3rem;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -41,20 +46,28 @@ main {
     grid-column: 2 / -1;
 }
 
+/* ------- sidebar ------- */
+
+.sidebar > * {
+    margin-bottom: 3rem;
+}
+
 .brand {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--sidebar-gap);
+
+    & .logo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        width: var(--sidebar-icon-size);
+        height: var(--sidebar-icon-size);
+        gap: 4px;
+    }
+
 }
 
-.logo {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    width: 3em;
-    height: 3em;
-    gap: 4px;
-}
 
 .rectangle {
     background-color: whitesmoke;
@@ -83,4 +96,21 @@ main {
 
 h1 {
     margin: 0;
+}
+
+
+& .menu__item {
+    height: var(--sidebar-icon-size);
+    display: flex;
+    align-items: center;
+    gap: var(--sidebar-gap);
+
+    & svg {
+        fill: whitesmoke;
+        width: var(--sidebar-icon-size);
+    }
+
+    & span {
+        font-size: 1.5rem;
+    }
 }
