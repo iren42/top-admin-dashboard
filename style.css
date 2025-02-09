@@ -21,6 +21,7 @@ body {
 
 .sidebar {
     grid-row: 1 / -1;
+    background-color: blanchedalmond;
 }
 
 header {
