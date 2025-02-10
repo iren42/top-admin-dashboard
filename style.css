@@ -1,6 +1,9 @@
 :root {
+    --black: #181A18;
     --sidebar-gap: 1rem;
     --sidebar-icon-size: 3rem;
+    --btn-paddingT: 0.5rem;
+    --btn-paddingL: 1rem;
 }
 
 * {
@@ -18,6 +21,11 @@ span {
     line-height: 1.5;
 }
 
+button {
+    border-radius: 16px;
+    padding: var(--btn-paddingT) var(--btn-paddingL);
+}
+
 body {
     height: 100svh;
     width: 100svw;
@@ -25,13 +33,17 @@ body {
 
 .dashboard {
     display: grid;
-    grid-template-columns: 300px 1fr;
-    grid-template-rows: 200px 1fr;
+    grid-template-columns: 18rem 1fr;
+    grid-template-rows: 10rem 1fr;
+    height: 100svh;
 }
 
-.sidebar, header, main {
+.sidebar,
+header,
+main {
     padding: 1rem;
 }
+
 .sidebar {
     grid-row: 1 / -1;
     background-color: darkblue;
@@ -41,10 +53,10 @@ body {
 header {
     grid-area: 1 / 2 / 2 / -1;
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: repeat(2, 4rem);
     grid-template-columns: 2fr 1fr;
+    background-color: azure;
 }
-
 
 main {
     grid-row: 2 / -1;
@@ -70,9 +82,7 @@ main {
         height: var(--sidebar-icon-size);
         gap: 4px;
     }
-
 }
-
 
 .rectangle {
     background-color: whitesmoke;
@@ -103,7 +113,6 @@ h1 {
     margin: 0;
 }
 
-
 & .menu__item {
     height: var(--sidebar-icon-size);
     display: flex;
@@ -120,9 +129,81 @@ h1 {
     }
 }
 
+.topNav {
+    display: flex;
+    align-items: center;
+    gap: var(--sidebar-gap);
+
+    & input[type="search"] {
+        flex: 1;
+        height: 2rem;
+        border-radius: 8px;
+    }
+
+    & button {
+        background-color: bisque;
+    }
+}
+
+.userNav {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: var(--sidebar-gap);
+
+    & .userName {
+        font-weight: 900;
+    }
+
+    & svg {
+        fill: whitesmoke;
+        stroke: black;
+    }
+}
+
+.userInfo {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: min-content 1fr;
+    align-items: center;
+
+    & img {
+        grid-area: 1 / 1 / span 2 / span 1;
+        align-self: center;
+        margin-right: var(--sidebar-gap);
+    }
+
+    & span {
+        font-weight: 900;
+    }
+
+    & span:first-of-type {
+        align-self: end;
+    }
+
+    & .userName {
+        grid-area: 2 / 2 / span 1 / span 1;
+        align-self: start;
+        font-size: larger;
+    }
+}
+
+.actions {
+    & ul {
+        height: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: var(--sidebar-gap);
+    }
+
+    & button {
+        background-color: aquamarine;
+    }
+}
 
 /* ------- for collapsed sidebar ------- */
-@media only screen and (max-width: 992px ) {
+@media only screen and (max-width: 992px) {
     body {
         background-color: black;
     }
