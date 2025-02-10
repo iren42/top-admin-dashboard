@@ -4,6 +4,7 @@
     --sidebar-icon-size: 3rem;
     --btn-paddingT: 0.5rem;
     --btn-paddingL: 1rem;
+    --h2-marginB: 1rem;
 }
 
 * {
@@ -24,6 +25,7 @@ span {
 button {
     border-radius: 16px;
     padding: var(--btn-paddingT) var(--btn-paddingL);
+    cursor: pointer;
 }
 
 body {
@@ -129,6 +131,7 @@ h1 {
     }
 }
 
+/* ------- header ------- */
 .topNav {
     display: flex;
     align-items: center;
@@ -188,7 +191,7 @@ h1 {
     }
 }
 
-.actions {
+header .actions {
     & ul {
         height: 100%;
         display: flex;
@@ -199,6 +202,68 @@ h1 {
 
     & button {
         background-color: aquamarine;
+    }
+}
+
+/* ------- main content ------- */
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: var(--sidebar-gap);
+    background-color: gainsboro;
+
+    & .card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem 1rem;
+    }
+
+    & h2 {
+        margin-bottom: var(--h2-marginB);
+        margin-top: var(--h2-marginB);
+    }
+
+    & .userProjects {
+        grid-area: 1 / 1 / span 2 / span 1;
+
+        & .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-rows: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        & .card {
+            border-left: 8px solid orange;
+            display: flex;
+            flex-direction: column;
+
+            & p {
+                flex: 1;
+            }
+
+            & .actions {
+                display: flex;
+                justify-content: end;
+                gap: 16px;
+
+                & button {
+                    fill: black;
+                    background-color: transparent;
+                    border: none;
+                    padding: 0;
+
+                    & svg {
+                        fill: white;
+                        stroke: black;
+                        stroke-width: 0.1rem;
+                    }
+                }
+            }
+        }
+
+
     }
 }
 
