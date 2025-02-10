@@ -280,14 +280,20 @@ h3 {
     overflow: hidden;
 }
 
+.trending,
 .announcements {
-    .card {
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
-    }
+    display: flex;
+    flex-direction: column;
+}
 
+.trending .card,
+.announcements .card {
+    flex: 1;
+}
+
+.announcements {
     & .systemMsg:not(:last-of-type) {
-        border-bottom:  3px solid var(--bg-color-main);
+        border-bottom: 3px solid var(--bg-color-main);
         margin-bottom: 0.8rem;
     }
 }
