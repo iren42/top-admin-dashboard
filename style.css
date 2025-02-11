@@ -8,6 +8,10 @@
     --h2-marginB: 1rem;
 }
 
+body {
+    height: 100svh;
+}
+
 *,
 *:before,
 *:after {
@@ -16,14 +20,22 @@
     padding: 0;
 }
 
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
 li {
     list-style-type: none;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin-bottom: var(--h2-marginB);
+    margin-top: var(--h2-marginB);
+}
+
+h3 {
+    margin-bottom: 0.2rem;
+    margin-top: 0.3rem;
 }
 
 p,
@@ -35,10 +47,6 @@ button {
     border-radius: 16px;
     padding: var(--btn-paddingT) var(--btn-paddingL);
     cursor: pointer;
-}
-
-body {
-    height: 100svh;
 }
 
 .dashboard {
@@ -119,20 +127,6 @@ main {
     grid-column: 2;
 }
 
-h1 {
-    margin: 0;
-}
-
-h2 {
-    margin-bottom: var(--h2-marginB);
-    margin-top: var(--h2-marginB);
-}
-
-h3 {
-    margin-bottom: 0.2rem;
-    margin-top: 0.3rem;
-}
-
 & .menu__item {
     height: var(--sidebar-icon-size);
     display: flex;
@@ -150,6 +144,7 @@ h3 {
 }
 
 /* ------- header ------- */
+
 .topNav {
     display: flex;
     align-items: center;
@@ -224,6 +219,7 @@ header .actions {
 }
 
 /* ------- main content ------- */
+
 main {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 300px;
