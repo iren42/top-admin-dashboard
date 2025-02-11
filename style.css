@@ -260,10 +260,13 @@ header .actions {
 
 main {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 300px;
-    grid-auto-rows: minmax(0, 1fr);
+    grid-template-columns: 3fr 1fr;
+    grid-auto-rows: minmax(0, 1fr); /* needed to have equal sized cells */
     gap: var(--spacing-sm);
     background-color: var(--light-grey);
+    grid-template-areas: 
+    "userProjects annoucements"
+    "userProjects trending";
 
     & .card {
         background-color: var(--background);
@@ -273,7 +276,7 @@ main {
 }
 
 & .userProjects {
-    grid-area: 1 / 1 / span 2 / span 1;
+    grid-area: userProjects;
     display: grid;
     grid-template-rows: minmax(0, 1fr);
 
@@ -332,6 +335,8 @@ main {
 }
 
 .announcements {
+    grid-area: annoucements;
+
     & .systemMsg {
         overflow: hidden;
     }
@@ -339,6 +344,10 @@ main {
     & .systemMsg:not(:last-of-type) {
         border-bottom: 3px solid var(--light-grey);
     }
+}
+
+.trending {
+    grid-area: trending;
 }
 
 /* ------- for collapsed sidebar ------- */
