@@ -1,9 +1,18 @@
 :root {
-    --sidebar-gap: 1rem;
     --sidebar-icon-size: 3rem;
-    --btn-paddingT: 0.5rem;
-    --btn-paddingL: 1rem;
-    --h2-marginB: 1rem;
+
+    --spacing-xxs: 0.25rem;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+    --spacing-xxl: 16rem;
+
+    --font-size-sm: 0.625rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 2rem;
 
     --dark: #1c1c1c;
     --light: #eeeeee;
@@ -12,8 +21,8 @@
     --blue: #0087af;
     --pink: #d70087;
     --dark-blue: #005f87;
-    --light-grey: #bcbcbc ;
-  
+    --light-grey: #bcbcbc;
+
     --foreground: var(--dark-blue);
     --background: var(--light);
     --border-color: var(--dark-blue);
@@ -43,8 +52,8 @@ h1 {
 }
 
 h2 {
-    margin-bottom: var(--h2-marginB);
-    margin-top: var(--h2-marginB);
+    margin-bottom: var(--spacing-xs);
+    margin-top: var(--spacing-sm);
     color: var(--dark-blue);
 }
 
@@ -56,6 +65,7 @@ h3 {
 p,
 span {
     line-height: 1.5;
+    overflow: hidden;
 }
 
 p {
@@ -68,7 +78,7 @@ svg {
 
 button {
     border-radius: 16px;
-    padding: var(--btn-paddingT) var(--btn-paddingL);
+    padding: var(--spacing-xs) var(--spacing-sm);
     cursor: pointer;
     font-weight: 900;
     border-color: var(--foreground);
@@ -85,7 +95,7 @@ button {
 .sidebar,
 header,
 main {
-    padding: 1rem;
+    padding: var(--spacing-sm);
 }
 
 .sidebar {
@@ -105,9 +115,8 @@ header {
     background-color: var(--background);
 }
 
-.sidebar +
-header {
-border-left: 0;
+.sidebar + header {
+    border-left: 0;
 }
 
 main {
@@ -119,13 +128,13 @@ main {
 /* ------- sidebar ------- */
 
 .sidebar > * {
-    margin-bottom: 3rem;
+    margin-bottom: var(--spacing-lg);
 }
 
 .brand {
     display: flex;
     align-items: center;
-    gap: var(--sidebar-gap);
+    gap: var(--spacing-sm);
 
     & .logo {
         display: grid;
@@ -166,14 +175,14 @@ main {
     height: var(--sidebar-icon-size);
     display: flex;
     align-items: center;
-    gap: var(--sidebar-gap);
+    gap: var(--spacing-sm);
 
     & svg {
         width: var(--sidebar-icon-size);
     }
 
     & span {
-        font-size: 1.5rem;
+        font-size: var(--font-size-lg);
     }
 }
 
@@ -182,7 +191,7 @@ main {
 .topNav {
     display: flex;
     align-items: center;
-    gap: var(--sidebar-gap);
+    gap: var(--spacing-sm);
 
     & input[type="search"] {
         flex: 1;
@@ -198,7 +207,7 @@ main {
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: var(--sidebar-gap);
+    gap: var(--spacing-sm);
 
     & .userName {
         font-weight: 900;
@@ -214,7 +223,7 @@ main {
     & img {
         grid-area: 1 / 1 / span 2 / span 1;
         align-self: center;
-        margin-right: var(--sidebar-gap);
+        margin-right: var(--spacing-sm);
     }
 
     & span {
@@ -228,7 +237,7 @@ main {
     & .userName {
         grid-area: 2 / 2 / span 1 / span 1;
         align-self: start;
-        font-size: larger;
+        font-size: var(--font-size-lg);
     }
 }
 
@@ -238,7 +247,7 @@ header .actions {
         display: flex;
         justify-content: end;
         align-items: center;
-        gap: var(--sidebar-gap);
+        gap: var(--spacing-sm);
     }
 
     & button {
@@ -253,13 +262,13 @@ main {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 300px;
     grid-auto-rows: minmax(0, 1fr);
-    gap: var(--sidebar-gap);
+    gap: var(--spacing-sm);
     background-color: var(--light-grey);
 
     & .card {
         background-color: var(--background);
         border-radius: 8px;
-        padding: 2rem 2rem;
+        padding: var(--spacing-md);
     }
 }
 
@@ -287,7 +296,7 @@ main {
         & .actions {
             display: flex;
             justify-content: end;
-            gap: 16px;
+            gap: var(--spacing-sm);
 
             & button {
                 border: none;
@@ -319,9 +328,14 @@ main {
     flex: 1;
     display: grid;
     grid-auto-rows: minmax(0, 1fr);
+    overflow: hidden;
 }
 
 .announcements {
+    & .systemMsg {
+        overflow: hidden;
+    }
+
     & .systemMsg:not(:last-of-type) {
         border-bottom: 3px solid var(--light-grey);
     }
