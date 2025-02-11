@@ -284,7 +284,6 @@ main {
     & .card {
         background-color: var(--background);
         border-radius: 8px;
-        padding: var(--spacing-md);
     }
 }
 
@@ -305,6 +304,7 @@ main {
         border-left: 8px solid var(--violet);
         display: flex;
         flex-direction: column;
+        padding: var(--spacing-md);
 
         & p {
             flex: 1;
@@ -352,16 +352,19 @@ main {
 .trending .card,
 .announcements .card,
 .userProjects .container {
-    flex: 1;
+    flex: 1 1 0;
 }
 
 .announcements {
     grid-area: annoucements;
     overflow: hidden;
 
+    & .card {
+        padding: var(--spacing-xs);
+    }
+
     & .systemMsg {
         overflow: hidden;
-        flex-basis: 0;
     }
 
     & .systemMsg:not(:last-of-type) {
@@ -371,12 +374,48 @@ main {
 
 .trending {
     grid-area: trending;
+    overflow: hidden;
+
+    & .card {
+        padding: var(--spacing-xs);
+    }
 
     & ul {
         height: 100%;
+    }
 
-        & > li {
-            flex-basis: 0;
+    & div {
+        height: 100%;
+    }
+
+    & .trendingUser {
+        display: grid;
+        grid-template-columns: 48px minmax(0, 1fr);
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: repeat(2, minmax(0, 1fr));
+        column-gap: var(--spacing-xs);
+        grid-template-areas:
+            "pic username"
+            "pic lastestProject";
+
+        & > img {
+            grid-area: pic;
+            align-self: center;
+        }
+
+        & span {
+            text-wrap: nowrap;
+            overflow: hidden;
+        }
+
+        & > span:first-of-type {
+            grid-area: username;
+            align-self: end;
+        }
+
+        & > span:last-of-type {
+            grid-area: lastestProject;
+            align-self: start;
         }
     }
 }
