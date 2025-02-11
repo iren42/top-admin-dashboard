@@ -8,11 +8,19 @@
     --h2-marginB: 1rem;
 }
 
-* {
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+} */
 
 li {
     list-style-type: none;
@@ -29,15 +37,15 @@ button {
     cursor: pointer;
 }
 
-html {
+body {
     height: 100svh;
 }
 
 .dashboard {
+    height: 100%;
     display: grid;
-    grid-template-columns: 18rem 1fr;
-    grid-template-rows: 10rem 1fr;
-    height: 100svh;
+    grid-template-columns: 18rem minmax(0, 1fr);
+    grid-template-rows: 10rem minmax(0, 1fr);
 }
 
 .sidebar,
@@ -56,7 +64,7 @@ header {
     grid-area: 1 / 2 / 2 / -1;
     display: grid;
     grid-template-rows: repeat(2, 4rem);
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     background-color: azure;
 }
 
@@ -115,6 +123,16 @@ h1 {
     margin: 0;
 }
 
+h2 {
+    margin-bottom: var(--h2-marginB);
+    margin-top: var(--h2-marginB);
+}
+
+h3 {
+    margin-bottom: 0.2rem;
+    margin-top: 0.3rem;
+}
+
 & .menu__item {
     height: var(--sidebar-icon-size);
     display: flex;
@@ -166,8 +184,8 @@ h1 {
 
 .userInfo {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: min-content 1fr;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-columns: min-content minmax(0, 1fr);
     align-items: center;
 
     & img {
@@ -208,8 +226,8 @@ header .actions {
 /* ------- main content ------- */
 main {
     display: grid;
-    grid-template-columns: 1fr 300px;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-auto-rows: 1fr;
     gap: var(--sidebar-gap);
     background-color: var(--bg-color-main);
 
@@ -218,22 +236,17 @@ main {
         border-radius: 8px;
         padding: 2rem 2rem;
     }
-
-    & h2 {
-        margin-bottom: var(--h2-marginB);
-        margin-top: var(--h2-marginB);
-    }
-
-
 }
 
 & .userProjects {
     grid-area: 1 / 1 / span 2 / span 1;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
 
     & .container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: minmax(0, 1fr);
         gap: 24px;
     }
 
@@ -267,11 +280,6 @@ main {
     }
 }
 
-h3 {
-    margin-bottom: 0.2rem;
-    margin-top: 0.3rem;
-}
-
 /* for multilines text overflow */
 .clamp {
     display: -webkit-box;
@@ -281,6 +289,7 @@ h3 {
     overflow: hidden;
 }
 
+.userProjects,
 .trending,
 .announcements {
     display: flex;
@@ -288,10 +297,11 @@ h3 {
 }
 
 .trending .card,
-.announcements .card {
+.announcements .card,
+.userProjects .container {
     flex: 1;
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-auto-rows: minmax(0, 1fr);
 }
 
 .announcements {
