@@ -14,6 +14,8 @@
     --font-size-lg: 1.25rem;
     --font-size-xl: 2rem;
 
+    --lh: 1.5;
+
     --dark: #1c1c1c;
     --light: #eeeeee;
     --grey: #5c5c5c;
@@ -65,7 +67,7 @@ h3 {
 
 p,
 span {
-    line-height: 1.5;
+    line-height: var(--lh);
     overflow: hidden;
 }
 
@@ -299,6 +301,8 @@ main {
 
         & p {
             flex: 1;
+            flex-basis: 0;
+            margin-bottom: var(--spacing-sm);
         }
 
         & .actions {
