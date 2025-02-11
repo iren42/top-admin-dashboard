@@ -10,3 +10,4 @@ Papercolor by NLKNguyen [github](https://github.com/NLKNguyen/papercolor-theme)
 ## How can I improve this?
 - make the sidebar collapse when the screen is small
 - find another way to truncate mulitline text
+- sidebar always on sight
